@@ -49,24 +49,24 @@ def test_binary_search():
 
 
 def time_search(search_fn, mylist, key):
-  start_time = time.time()
-  search_fn(mylist, key)
-  end_time = time.time()
-  return (end_time - start_time) * 1000
+	start_time = time.time()
+	search_fn(mylist, key)
+	end_time = time.time()
+	return (end_time - start_time) * 1000
 
-def compare_search(sizes=[1e1, 1e2, 1e3, 1e4, 1e5, 1e6, 1e7]):
-  ls = []
-  num_ls = []
-  key = -1
+def compare_search(sizes=[1e1, 1e2, 1e3, 1e4, 1e5, 1e6]):
+	ls = []
+	num_ls = []
+	key = -1
   
-  for size in sizes:
-    for i in range(0, size -1):
-      num_ls.append(i)
-    lin_search_time = time_search(linear_search, num_ls, key)
-    bin_search_time = time_search(binary_search, num_ls, key)
-    ls.append([size, lin_search_time, bin_search_time])
+	for size in sizes:
+		for i in range(0, size -1):
+			num_ls.append(i)
+			lin_search_time = time_search(linear_search, num_ls, key)
+			bin_search_time = time_search(binary_search, num_ls, key)
+			ls.append([size, lin_search_time, bin_search_time])
 
-  return ls
+	return ls
 
 def print_results(results):
 	""" done """
@@ -76,8 +76,8 @@ def print_results(results):
 							tablefmt="github"))
 
 def test_compare_search():
-	res = compare_search(sizes=[10, 100])
-	print(res)
+	res = compare_search([10, 100])
+	print_results(res)
 	assert res[0][0] == 10
 	assert res[1][0] == 100
 	assert res[0][1] < 1
