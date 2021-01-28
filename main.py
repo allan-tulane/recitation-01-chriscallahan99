@@ -37,8 +37,9 @@ def _binary_search(mylist, key, left, right):
 	Returns:
 	  index of key in mylist, or -1 if not present.
 	"""
-	### TODO
-	###
+   mid == right - left // 2
+   
+
 
 def test_binary_search():
 	assert binary_search([1,2,3,4,5], 5) == 4
